@@ -1,0 +1,45 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    cmake \
+    wget \
+    curl \
+    zlib1g-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    libdb-dev \
+    libsqlite3-dev \
+    libboost-all-dev \
+    ca-certificates \
+    && apt-get clean
+
+WORKDIR /opt
+
+# Install BGEN library
+RUN git clone https://github.com/limix/bgen.git && \
+    cd bgen && \
+    mkdir build && cd build && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
+    make && make install && \
+    cd ../..
+
+# Clone and build REGENIE
+RUN git clone https://github.com/rgcgithub/regenie.git && \
+    cd regenie && \
+    git checkout v4.1.1 && \
+    mkdir build && cd build && \
+    cmake -DBGEN_PATH=/usr/local -DCMAKE_BUILD_TYPE=Release \
+          -DBoost_NO_BOOST_CMAKE=ON -DBoost_USE_STATIC_LIBS=OFF \
+          -DCMAKE_CXX_FLAGS="-I/usr/local/include" .. && \
+    make
+
+ENV PATH="/opt/regenie/build:$PATH"
+
+ENTRYPOINT ["regenie"]
