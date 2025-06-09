@@ -85,6 +85,6 @@ This project uses the official [REGENIE Docker image](https://github.com/rgcgith
 ghcr.io/rgcgithub/regenie/regenie:v3.0.1.gz
 ```
 
-- The Dockerfile and wrapper script were written by Logan Cohen for use in an educational genomics setting on Apple Silicon (M3 Pro).  
-- REGENIE is distributed under the MIT License. For full license details, see the [REGENIE GitHub repository](https://github.com/rgcgithub/regenie).  
-- Assistance in building and documenting this setup was provided by Lyric, an AI assistant powered by OpenAI’s GPT-4o model. AI contributed to debugging and documentation, but all core logic was human-developed.
+- REGENIE is distributed under the MIT License. For full license details, see the [REGENIE GitHub repository](https://github.com/rgcgithub/regenie).
+- Program logic created by by Logan Cohen for use in an educational genomics setting on Apple Silicon (M3 Pro).
+- Assistance with debugging and documentation was provided by Lyric (OpenAI’s GPT-4o model)
