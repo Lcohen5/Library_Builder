@@ -19,9 +19,13 @@ If R and RStudio are already installed, this script will update both
 
 1. Open your Terminal.
 
+## Usage
+
+1. Open your Terminal.
+
 2. Launch the Script
 
-Open your terminal and navigate to the directory where your script and Dockerfile live using the cd command
+Open your terminal and navigate to the directory where your script lives using the cd command
 
 Then activate and run the script:
 
